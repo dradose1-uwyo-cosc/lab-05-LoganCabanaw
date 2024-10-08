@@ -1,6 +1,6 @@
-# Your Name Here
+# Logan Cabanaw
 # UWYO COSC 1010
-# Submission Date
+# 10/7/2024
 # Lab 03 
 # Lab Section: 
 # Sources, people worked with, help given to: 
@@ -94,21 +94,46 @@ min_temps = [
 # You cannot use in-built functions like max(), min() or sort the lists
 # The use of len() is fine
 # You can do this in two individual loops, or a single loop if you wish 
+max_max_val = max_temps[0]
+for max_val in max_temps:
+    if max_val > max_max_val:
+        max_max_val = max_val
 
-print(f"Max temp = {max_temp}")
-print(f"Min temp = {min_temp}")
+max_min_val = min_temps[0]
+for min_val in min_temps:
+    if min_val > max_min_val:
+        max_min_val = min_val
+print(f"Maximum Max temp = {max_max_val}")
+print(f"Maximum Min temp = {max_min_val}")
 
 # Given the below list 
 numbers = [-61, -76, 94, 21, 97, -4, 21, 56, -26, 9, 100, 56, -7, -32, 60, -68, -25, 3, -10, -83, 63, 0, 13, -99, 87, -46, -88, -71, 4, -99, -15, -12, 72, -1, -20, -90, 32, -36, -59, 83, 78, 52, 43, 55, 12, 16, -37, -5, -98, -53]
 # Count how many positive numbers occur, how many negative numbers occur, and how many times 0 occurs
 # You should print the number and the result within an f-string 
 # Example output: 83 is positive
-
-print(f'There are {pos_count} positive numbers')
-print(f'There are {neg_count} negative numbers')
-print(f"Zero occurred {zero_count} time(s)")
+neg_num = 0
+null = 0
+pos_num = 0
+for num in numbers:
+    if num == 0:
+        null = 1 + null
+    elif num-abs(num) != 0:
+        neg_num = 1 + neg_num
+    elif num-abs(num) == 0:
+        pos_num = 1 + pos_num
+print(f'There are {pos_num} positive numbers')
+print(f'There are {neg_num} negative numbers')
+print(f"Zero occurred {null} time(s)")
 # Given the same numbers list, give the sum of all positive numbers, and the sum of all negative numbers
 # This should be done within a single loop
-
-print(f"Sum of positive numbers {pos_sum}")
-print(f"Sum of negative numbers {neg_sum}")
+neg_num = 0
+pos_num = 0
+for num in numbers:
+    if num-abs(num) != 0:
+        neg_num = neg_num + num
+    elif num-abs(num) == 0:
+        pos_num = pos_num + num
+print(neg_num)
+print(pos_num)
+print(f"Sum of positive numbers {pos_num}")
+print(f"Sum of negative numbers {neg_num}")
